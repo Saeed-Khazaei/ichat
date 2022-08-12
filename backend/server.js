@@ -1,8 +1,12 @@
 const express = require('express')
+const dotenv = require('dotenv')
 const app = express()
+
+dotenv.config();
 
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'Hello world' })
 })
 
-app.listen(5000, console.log(`App are listen on 5000`))
+const PORT = process.env.PORT || 5000
+app.listen(5000, console.log(`Server started on PORT ${PORT}`))
